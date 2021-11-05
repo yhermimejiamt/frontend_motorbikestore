@@ -2,7 +2,7 @@ function categoryBox() {
   //console.log("carga categoria");
   $.ajax({
     //url:"http://localhost:8080/api/Category/all",
-    url:"http://152.67.33.106:80/api/Category/all",
+    url:"http://152.67.33.106:8080/api/Category/all",
     type: "GET",
     datatype: "JSON",
     success: function (respuesta) {
