@@ -1,12 +1,13 @@
 function traerReporteStatus() {
   console.log("test");
   $.ajax({
-    url: "http://localhost:8080/api/Reservation/report-status",
+    //url: "http://localhost:8080/api/Reservation/report-status",
+    url: "http://152.67.33.106:8080/api/Reservation/report-status",
     type: "GET",
     datatype: "JSON",
     success: function (respuesta) {
-      console.log(respuesta);
-      pintarRespuesta(respuesta);
+    console.log(respuesta);
+    pintarRespuesta(respuesta);
     },
   });
 }
@@ -26,13 +27,9 @@ function traerReporteDate() {
   var fechaCierre = document.getElementById("RdevolutionDate").value;
   console.log(fechaInicio);
   console.log(fechaCierre);
-
   $.ajax({
-    url:
-      "http://localhost:8080/api/Reservation/report-dates/" +
-      fechaInicio +
-      "/" +
-      fechaCierre,
+    //url:"http://localhost:8080/api/Reservation/report-dates/" + fechaInicio + "/" + fechaCierre,
+    url:"http://152.67.33.106:8080/api/Reservation/report-dates/" + fechaInicio + "/" + fechaCierre,
     type: "GET",
     datatype: "JSON",
     success: function (respuesta) {
@@ -50,16 +47,16 @@ function pintarRespuestaDate(respuesta) {
     myTable += "<td>" + respuesta[i].devolutionDate + "</td>";
     myTable += "<td>" + respuesta[i].startDate + "</td>";
     myTable += "<td>" + respuesta[i].status + "</td>";
-
     myTable += "</tr>";
   }
   myTable += "</table>";
   $("#resultadoDate").html(myTable);
 }
-
 function traerReporteClientes() {
   $.ajax({
-    url: "http://localhost:8080/api/Reservation/report-clients",
+    //url:"http://localhost:8080/api/Reservation/report-clients",
+    url:"http://152.67.33.106:8080/api/Reservation/report-clients",
+    
     type: "GET",
     datatype: "JSON",
     success: function (respuesta) {

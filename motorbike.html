@@ -13,6 +13,7 @@
     />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="text/javascript" src="js/motorbike.js"></script> 
+    <link rel="stylesheet" href="css/style.css">
     <title>Motorbike Motorbike</title>
   </head>
   <body>
@@ -59,22 +60,18 @@
                 <h4>Modulo Motorbikes</h4>
                 <div class="col-sm-5 offset-sm-2 col-md-7 offset-md-0"> </div>
                 <div class="row">
-                  <div class="col-8">
+                  <div class="col-12">
                     <div class="mb-3">    
-                      <input class="text-center" type="text" id="idMotorbike" placeholder="ID" disabled>
-                      <input class="text-center" type="text" id="nameMotorbike" placeholder="Name"/>
+                      <input class="text-center" type="text" id="idMotorbike" placeholder="ID" disabled>                      
                       <input class="text-center" type="text" id="brandMotorbike" placeholder="Brand"/>
                       <input class="text-center" type="text" id="yearMotorbike" placeholder="Year"/>
-                      <input class="text-center" type="text" id="descriptionMotorbike" placeholder="Description"/>
-                    </div>    
-                    <div>
-                      <select id="select-category"></select>
+                      Category ->>><select id="select-category"></select>
                       <script type="text/javascript">
                       window.onload = categoryBox();
-                    </script>
-                    </div>           
+                      </script>
+                      <input class="text-center" type="text" id="nameMotorbike" placeholder="Name"/>
+                      <input class="text-center" type="text" id="descriptionMotorbike" placeholder="Description"/>
                       
-                     
                     </div>
                     <div class="col-sm-5 offset-sm-2 col-md-7 offset-md-0"> </div>
                     <div class="form-group">
@@ -88,17 +85,16 @@
                     <table class="table table-hover">
                       <thead>
                         <tr>
-                          <th scope="col">ID</th>
-                          <th scope="col">Name</th>
+                          <th scope="col">ID</th>                          
                           <th scope="col">Brand</th>
                           <th scope="col">Year</th>
-                          <th scope="col">Description</th>
                           <th scope="col">Category</th> 
+                          <th scope="col">Name</th>
+                          <th scope="col">Description</th>                          
                           <th scope="col">Update</th>
                           <th scope="col">Delete</th>
                         </tr>
-                      </thead>
-                      
+                      </thead>                      
                       <tbody id="motorbike"></tbody>
                     </table>
                   </div>                  

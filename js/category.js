@@ -20,22 +20,20 @@ function postCategory() {
       url:"http://152.67.33.106:8080/api/Category/save",
       success: function (response) {
         console.log(response);
-        alert("Se guardo correctamente");
+        alert("Categoria creada correctamente");
         window.location.reload();
       },
       error: function (jqXHR, textStatus, errorThrown) {
         window.location.reload();
-        alert("No se guardo correctamente");
+        alert("No se creo la categoria");
       },
     });
   }
 }
-
 getCategory();
-
 function getCategory() {
   $.ajax({
-    //url: "http://localhost:8080/api/Category/all",
+    //url:"http://localhost:8080/api/Category/all",
     url:"http://152.67.33.106:8080/api/Category/all",
     type: "GET",
     datatype: "JSON",
@@ -62,10 +60,9 @@ function boardCategory(resultCategory) {
 function editCategory(idCategory) {
     $.ajax({
       dataType: "json",
-      //url: "http://localhost:8080/api/Category/" + idCategory,
+      //url:"http://localhost:8080/api/Category/" + idCategory,
       url:"http://152.67.33.106:8080/api/Category/"+idCategory,
-      type: "GET",
-  
+      type: "GET",  
       success: function (response) {
         console.log(response);
         var item = response;
@@ -73,11 +70,10 @@ function editCategory(idCategory) {
         console.log(item.id);
         $("#nameCategory").val(item.name);
         $("#descriptionCategory").val(item.description);
-      },
-  
+      },  
       error: function (jqXHR, textStatus, errorThrown) {},
     });
-  }
+}
 function putCategory(idCategory){
     
     if ($("#nameCategory").val().length==0 || $("#descriptionCategory").val().length==0){
@@ -93,7 +89,7 @@ function putCategory(idCategory){
     console.log(myData.id);
     let dataToSend=JSON.stringify(myData);
     $.ajax({
-        //url: "http://localhost:8080/api/Category/update",
+        //url:"http://localhost:8080/api/Category/update",
         url:"http://152.67.33.106:8080/api/Category/update",
         type:"PUT",
         data:dataToSend,
@@ -101,22 +97,21 @@ function putCategory(idCategory){
         datatype:"JSON",
         success:function(respuesta){
             $("#resultado").empty();
+            $("#idCategory").val("");
             $("#nameCategory").val("");
             $("#descriptionCategory").val("");
             getCategory();
-            alert("se ha Actualizado correctamente la categoria")
+            alert("Categoria actualizada...")
         }
     });}
-
 }
-
 function deleteCategory(idCategory) {
   let myData = {
     id: idCategory,
   };
   let dataToSend = JSON.stringify(myData);
   $.ajax({
-    //url: "http://localhost:8080/api/Category/" + idCategory,
+    //url:"http://localhost:8080/api/Category/" + idCategory,
     url:"http://152.67.33.106:8080/api/Category/"+idCategory,
     type: "DELETE",
     data: dataToSend,
@@ -125,7 +120,7 @@ function deleteCategory(idCategory) {
     success: function (response) {
       $("#resultado").empty();
       getCategory();
-      alert("Se ha Eliminado.");
+      alert("Categoria "+idCategory+" eliminada.");
     },
   });
 }
